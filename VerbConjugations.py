@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+import pandas as pd
 import random as Random
 from utils import *
 from fields import *
