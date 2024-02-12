@@ -2,7 +2,9 @@ name: Build Workflow
 
 on:
   push:
-#    branches: master
+    # Pattern matched against refs/tags
+    tags:        
+        - '**' 
 
 jobs:
   build-windows:
@@ -22,7 +24,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run PyInstaller
         run: |
-          python -m PyInstaller DutchLingo.spec
+          python -m -y PyInstaller DutchLingo.spec
       - uses: actions/upload-artifact@v2
         with:
           name: Windows_DutchLingo
