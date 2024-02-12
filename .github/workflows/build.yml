@@ -4,7 +4,7 @@ on:
   push:
     # Pattern matched against refs/tags
     tags:        
-        - '**' 
+        - "v*.*.*"
 
 jobs:
   build-windows:
@@ -27,7 +27,7 @@ jobs:
           python -m PyInstaller DutchLingo.spec
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows_DutchLingo
+          name: DutchLingoApplication
           path: dist/DutchLingo/DutchLingo.exe
 
       - name: create release
@@ -46,7 +46,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{steps.create_release.outputs.upload_url}}
           asset_path: dist/DutchLingo/DutchLingo.exe
           asset_name: DutchLingo.exe
           asset_content_type: application/zip
