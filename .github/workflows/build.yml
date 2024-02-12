@@ -34,6 +34,8 @@ jobs:
           tag_name: ${{ github.event.head_commit.message }}
           release_name: ${{ github.event.head_commit.message }}
           overwrite: true
+          body: |
+            Release
           draft: false
           prerelease: false
       - name: Upload Release Asset
