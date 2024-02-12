@@ -13,8 +13,8 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v1
         with:
-          python-version: '3.11.1'
-          architecture: 'x64'
+          python-version: '3.11.7'
+          architecture: 'x86'
       - name: Install requirements
         run: |
           pip install -r requirements.txt
