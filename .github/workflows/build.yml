@@ -20,10 +20,10 @@ jobs:
           pip install -r requirements.txt
       - name: Run PyInstaller
         run: |
-          python -m PyInstaller DutchLingo.py
+          python -m PyInstaller DutchLingo.spec
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows_qwiklabs
+          name: Windows_DutchLingo
           path: dist/DutchLingo.exe
 
       - name: create release
