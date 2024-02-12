@@ -29,7 +29,6 @@ jobs:
         with:
           name: DutchLingoApplication
           path: dist/DutchLingo/DutchLingo.exe
-
       - name: create release
         id: create_release
         uses: ncipollo/release-action
