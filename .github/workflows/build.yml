@@ -28,7 +28,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: DutchLingoApplication
-          path: dist/DutchLingo/DutchLingo.exe
+          path: dist/DutchLingo
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
@@ -36,4 +36,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           allowUpdates: true
-          artifacts: dist/DutchLingo/DutchLingo.exe
+          artifacts: dist/DutchLingo
