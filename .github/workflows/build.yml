@@ -25,10 +25,15 @@ jobs:
       - name: Run PyInstaller
         run: |
           python -m PyInstaller DutchLingo.spec
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: DutchLingoApplication
           path: dist/DutchLingo
+      - name: Zip Application
+        uses: vimtor/action-zip@v1.1
+        with:
+          files: dist/DutchLingo/
+          dest: dist/DutchLingoApplication.zip
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
@@ -36,4 +41,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           allowUpdates: true
-          artifacts: dist/DutchLingo
+          artifacts: dist/DutchLingoApplication.zip
