@@ -23,7 +23,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Windows_DutchLingo
-          path: dist/DutchLingo.exe
+          path: dist/DutchLingo/DutchLingo.exe
 
       - name: create release
         id: create_release
@@ -42,6 +42,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: dist/DutchLingo.exe
+          asset_path: dist/DutchLingo/DutchLingo.exe
           asset_name: DutchLingo.exe
           asset_content_type: application/zip
